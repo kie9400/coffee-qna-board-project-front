@@ -1,19 +1,21 @@
-// Board.js 파일 예시
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Board.css'; // CSS 파일 불러오기
 import axiosInstance from "../api/axiosInstance";
 
 const Board = () => {
-    const [boards, setBoards] = useState([]);   // 제목만 저장하는 상태
+    const [boards, setBoards] = useState([]);   // repsonse body를 담기위한 상태
     const [loading, setLoading] = useState(true); // 로딩 상태
     const [error, setError] = useState(null);    // 에러 상태
     const [page, setPage] = useState(1);         // 현재 페이지 번호
     const [totalPages, setTotalPages] = useState(1); // 총 페이지 수
+    const navigate = useNavigate(); //작성 글 page로 이동합시다!
   
     // 페이지가 변경될 때마다 호출되는 useEffect
     useEffect(() => {
       const fetchboards = async () => {
+        
          // 로컬에서 액세스 토큰 가져오기
         const token = localStorage.getItem('accessToken'); 
   
@@ -46,13 +48,18 @@ const Board = () => {
         setPage(newPage); 
       }
     };
+
+    // 게시글 작성 버튼 클랙 핸들러
+    const handleBoardCreated = () => {
+        navigate("/boardCreate");
+    }
   
     return (
       <div className='board-container'>
         <ul>
         <h1>질문 게시판</h1>
         {/* 만약 배열의 길이가 0보다 크면 li태그를 만든다. */}
-        <button>글 작성</button>
+        <button onClick={handleBoardCreated}>글 작성</button>
         {Array.isArray(boards) && boards.length > 0 ? (
           boards.map((board) => 
             (<li key={board.boardId}>
