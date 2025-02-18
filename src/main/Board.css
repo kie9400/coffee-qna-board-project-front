@@ -1,0 +1,97 @@
+/* 전체 페이지 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* 게시판 영역 스타일 */
+  .board-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  /* 작성자, 조회수, 좋아요 등 */
+  p.author {
+    font-weight: bold;
+    color: #007BFF;
+  }
+  
+  p.viewCount, p.likeCount {
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  /* 작성일과 수정일 */
+  p.date {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  /* 페이지네이션 스타일 */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+  
+  .pagination button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .pagination button:disabled {
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+    color: #bbb;
+  }
