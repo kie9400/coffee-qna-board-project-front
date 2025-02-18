@@ -9,6 +9,8 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
+  //에러 상태 설정을 위한 useState 훅
+  const [error, setError] = useState('');
 
 
   //이메일과 비밀번호를 입력받고 setLoginInput에 저장한다.
@@ -35,11 +37,20 @@ const Login = () => {
             if (refreshTokne) {
                 localStorage.setItem('refreshToken', refreshTokne);
             }
+            navigate('/board')
             console.log(accessToken);
             console.log(res.data);
         }
     } catch (error) {
-        console.log(error);
+      if(error.status === 404) {
+        setError('가입하지 않은 회원입니다.');
+      }else if(loginInput.username === '' || loginInput.password === ''){
+        setError("이메일 또는 비밀번호를 입력해주십시오");
+      }else if(error.status === 401){
+        setError('없는 회원이거나 이메일, 비밀번호가 틀렸습니다.');
+      }else {
+        setError('알 수 없는 에러가 발생하였습니다.');
+      }
     }
   };
 
@@ -73,6 +84,7 @@ const Login = () => {
             required
           />
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="summit" onClick={handleLogin} className="login-button">로그인</button>
         <button onClick={goToSignup} className="signup-button">회원가입</button>
       </form>
