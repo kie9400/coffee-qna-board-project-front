@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './BoardCreate.css';
 
 const BoardCreate = () => {
     const navigate = useNavigate(); //main page로 이동
@@ -9,7 +10,7 @@ const BoardCreate = () => {
     const [boardInput, setBoardInput] = useState({
         title: "",
         content: "",
-        visibiity: "PUBLIC"
+        visibility: "PUBLIC"
     });
 
     const handleInputChange = (e) => {
@@ -49,10 +50,10 @@ const BoardCreate = () => {
             const res = await axios.post('http://localhost:8080/api/boards', formData, {
                 // 액세스 토큰을 헤더에 포함
                 headers: {
-                    Authorization: `${token}`,  
+                    Authorization: `${token}`  
                 }
             });
-            alert('게시글 작성완료')
+            alert('게시글 작성완료');
             navigate('/board');
         } catch (error) {
             console.log(error);
@@ -61,9 +62,9 @@ const BoardCreate = () => {
     }
 
     return (
-        <div>
-            글 작성 페이지입니다.
-            <div>
+        <div className='board-create-container'>
+            <h2>글 작성 페이지</h2>
+            <div className='input-group'>
                 <label htmlFor='title'>제목</label>
                 <input
                 id='title'
@@ -73,7 +74,7 @@ const BoardCreate = () => {
                 placeholder='제목을 입력하세요'
                 ></input>
             </div>
-            <div>
+            <div className='input-group'>
                 <label htmlFor='content'>내용</label>
                 <input
                 id='content'
@@ -83,7 +84,7 @@ const BoardCreate = () => {
                 placeholder='제목을 입력하세요'
                 ></input>
             </div>
-            <div>
+            <div className='input-group'>
                 <label htmlFor="visibility">공개 상태</label>
                 <select
                     id="visibility"
@@ -93,7 +94,9 @@ const BoardCreate = () => {
                     <option value="SECRET">비밀</option>
                 </select>
             </div>
-            <button onClick={handleCreate}>작성하기</button>
+            <div className='board-create-form button'>
+                 <button onClick={handleCreate}>작성하기</button>
+            </div>
         </div>
     );
 }

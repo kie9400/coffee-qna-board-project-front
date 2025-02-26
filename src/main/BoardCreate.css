@@ -1,0 +1,76 @@
+.board-create-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.board-create-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.board-create-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-create-form .input-group {
+    margin-bottom: 20px;
+}
+
+.board-create-form .input-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.board-create-form .input-group input,
+.board-create-form .input-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.board-create-form .input-group input:focus,
+.board-create-form .input-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.board-create-form .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.board-create-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.board-create-form button:hover {
+    background-color: #45a049;
+}
+
+.board-create-form button:active {
+    background-color: #388e3c;
+}
+
+.board-create-form .file-upload {
+    margin-top: 10px;
+}

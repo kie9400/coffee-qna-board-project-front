@@ -20,7 +20,7 @@ const Board = () => {
         const token = localStorage.getItem('accessToken'); 
   
         try {
-          const res = await axiosInstance.get(`/boards?page=${page}&size=10&sort=oldest`, {
+          const res = await axiosInstance.get(`/boards?page=${page}&size=10&sort=`, {
             headers: {
               Authorization: `${token}`,  // JWT 토큰을 헤더에 포함
             },
